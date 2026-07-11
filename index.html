@@ -31,7 +31,7 @@
   </main>
   <script>
     // Replace this URL after you deploy the Cloudflare Worker.
-    const API_ENDPOINT = "https://socratic-journal-api.fnurrahmadi.workers.dev//chat";
+    const API_ENDPOINT = "https://socratic-journal-api.fnurrahmadi.workers.dev/chat";
     const chat=document.getElementById("chat"),form=document.getElementById("composer"),messageInput=document.getElementById("messageInput"),reflectButton=document.getElementById("reflectButton"),errorElement=document.getElementById("error"),conversation=[];
     function addMessage(role,content){const message=document.createElement("article");message.className=`message ${role}`;const label=document.createElement("div");label.className="message-label";label.textContent=role==="assistant"?"Duck / signal received":"You / transmission";const body=document.createElement("div");body.className="message-body";body.textContent=content;message.append(label,body);chat.appendChild(message);chat.scrollTop=chat.scrollHeight}
     function addTypingIndicator(){const indicator=document.createElement("div");indicator.className="message assistant typing";indicator.setAttribute("aria-label","Duck is reflecting");indicator.innerHTML='<span class="dot"></span><span class="dot"></span><span class="dot"></span>';chat.appendChild(indicator);chat.scrollTop=chat.scrollHeight;return indicator}function showError(message){errorElement.textContent=message;errorElement.hidden=false}function clearError(){errorElement.textContent="";errorElement.hidden=true}function setLoading(loading){reflectButton.disabled=loading;messageInput.disabled=loading;reflectButton.textContent=loading?"Listening...":"Reflect ↗"}
