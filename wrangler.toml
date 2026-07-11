@@ -1,3 +1,11 @@
 name = "socratic-journal-api"
 main = "worker.js"
 compatibility_date = "2026-07-11"
+
+[[ratelimits]]
+name = "CHAT_RATE_LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 10
+  period = 60
